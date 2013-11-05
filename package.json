@@ -1,0 +1,21 @@
+{
+    "name": "grunt-yui-demo",
+    "version": "0.0.1",
+    "description": "Demo code for YUI conf",
+    "author": "Akshay Patel <akshayrpatel@gmail.com>",
+    "private": true,
+    "engines": {
+        "node": "0.10.x"
+    },
+    "devDependencies": {
+        "grunt": "~0.4.1",
+        "grunt-contrib-jshint": "~0.6.3",
+        "grunt-contrib-imagemin": "~0.2.0",
+        "grunt-contrib-uglify": "~0.2.4",
+        "grunt-contrib-concat": "~0.3.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/akshayp/grunt-yui-demo.git"
+    }
+}

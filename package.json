@@ -8,14 +8,19 @@
         "node": "0.10.x"
     },
     "devDependencies": {
+        "cssproc": "~0.0.7",
         "grunt": "~0.4.1",
-        "grunt-contrib-jshint": "*",
+        "grunt-contrib-clean": "~0.5.0",
+        "grunt-contrib-compass": "*",
+        "grunt-contrib-concat": "*",
         "grunt-contrib-imagemin": "*",
+        "grunt-contrib-jshint": "*",
         "grunt-contrib-uglify": "*",
         "grunt-contrib-concat": "*",
         "grunt-contrib-compass": "*",
         "grunt-contrib-watch": "*",
-        "grunt-contrib-handlebars": "*"
+        "grunt-contrib-handlebars": "*",
+        "grunt-contrib-watch": "*"
     },
     "repository": {
         "type": "git",

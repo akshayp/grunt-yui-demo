@@ -14,24 +14,35 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: 'public/img',
                     src: ['**/*.{png,jpg,gif}'],
-                    dest: 'public/img/minified'
+                    dest: 'build/img/'
                 }]
             }
         },
         concat: {
             js: {
                 src: ['public/vendor/rainbow/rainbow.js', 'public/vendor/**/*.js'],
-                dest: 'public/js/vendor.js'
+                dest: 'build/js/vendor.js'
             },
             css: {
-                src: ['public/vendor/**/*.css'],
-                dest: 'public/css/vendor.css'
+                src: ['public/vendor/**/*.css', 'build/css/*.css'],
+                dest: 'build/css/main.css'
             }
         },
         uglify: {
             js: {
                 files: {
-                    'public/js/vendor.js': ['public/js/vendor.js']
+                    'build/js/vendor.js': ['public/js/vendor.js']
+                }
+            }
+        },
+        cssproc: {
+            default_options: {
+                options: {
+                    root: __dirname,
+                    base: 'http://mycdn.com/'
+                },
+                files: {
+                    'build/css/main.css': ['public/css/main.css'],
                 }
             }
         },
@@ -59,17 +70,24 @@ module.exports = function (grunt) {
                 files: ['public/scss/**/*.scss'],
                 tasks: ['compass']
             }
-        }
+        },
+        clean: ['build']
     });
 
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-concat');
+    // load project tasks
+    grunt.loadTasks('tasks');
+
+    // load external tasks
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-handlebars');
 
-    grunt.registerTask('assets', ['concat', 'uglify']);
+    // setup tasks
+    grunt.registerTask('assets', ['clean', 'cssproc', 'concat', 'uglify']);
     grunt.registerTask('default', ['jshint']);
 };

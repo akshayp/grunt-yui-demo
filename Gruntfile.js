@@ -12,9 +12,9 @@ module.exports = function (grunt) {
             dynamic: {
                 files: [{
                     expand: true,
-                    cwd: 'public/img/upload',
+                    cwd: 'public/img',
                     src: ['**/*.{png,jpg,gif}'],
-                    dest: 'public/img/upload'
+                    dest: 'public/img/minified'
                 }]
             }
         },

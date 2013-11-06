@@ -35,6 +35,16 @@ module.exports = function (grunt) {
                 }
             }
         },
+        handlebars: {
+            compile: {
+                options: {
+                    namespace: 'JST'
+                },
+                files: {
+                    'public/js/templates.js': ['templates/*.hbs']
+                }
+            }
+        },
         compass: {
             dist: {
                 options: {
@@ -58,6 +68,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-handlebars');
 
     grunt.registerTask('assets', ['concat', 'uglify']);
     grunt.registerTask('default', ['jshint']);

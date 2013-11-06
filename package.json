@@ -14,7 +14,8 @@
         "grunt-contrib-uglify": "*",
         "grunt-contrib-concat": "*",
         "grunt-contrib-compass": "*",
-        "grunt-contrib-watch": "*"
+        "grunt-contrib-watch": "*",
+        "grunt-contrib-handlebars": "*"
     },
     "repository": {
         "type": "git",

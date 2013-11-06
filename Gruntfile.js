@@ -34,6 +34,21 @@ module.exports = function (grunt) {
                     'public/js/vendor.js': ['public/js/vendor.js']
                 }
             }
+        },
+        compass: {
+            dist: {
+                options: {
+                    sassDir: 'public/scss',
+                    cssDir: 'public/css',
+                    environment: 'production'
+                }
+            }
+        },
+        watch: {
+            compass: {
+                files: ['public/scss/**/*.scss'],
+                tasks: ['compass']
+            }
         }
     });
 
@@ -41,6 +56,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('assets', ['concat', 'uglify']);
     grunt.registerTask('default', ['jshint']);

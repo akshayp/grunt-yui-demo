@@ -8,6 +8,7 @@
         "node": "0.10.x"
     },
     "devDependencies": {
+        "cssproc": "~0.0.7",
         "grunt": "~0.4.1",
         "grunt-contrib-jshint": "*",
         "grunt-contrib-imagemin": "*",

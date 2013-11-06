@@ -1,1 +1,8 @@
-body{color:#fff;background:#ec4001}
+body {
+    color: #fff;
+    background: #ec4001;
+}
+
+.foo {
+    background-image: url('/public/bg.png');
+}

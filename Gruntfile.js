@@ -14,24 +14,35 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: 'public/img',
                     src: ['**/*.{png,jpg,gif}'],
-                    dest: 'public/img/minified'
+                    dest: 'build/img/'
                 }]
             }
         },
         concat: {
             js: {
                 src: ['public/vendor/rainbow/rainbow.js', 'public/vendor/**/*.js'],
-                dest: 'public/js/vendor.js'
+                dest: 'build/js/vendor.js'
             },
             css: {
-                src: ['public/vendor/**/*.css'],
-                dest: 'public/css/vendor.css'
+                src: ['public/vendor/**/*.css', 'build/css/*.css'],
+                dest: 'build/css/main.css'
             }
         },
         uglify: {
             js: {
                 files: {
-                    'public/js/vendor.js': ['public/js/vendor.js']
+                    'build/js/vendor.js': ['public/js/vendor.js']
+                }
+            }
+        },
+        cssproc: {
+            default_options: {
+                options: {
+                    root: __dirname,
+                    base: 'http://mycdn.com/'
+                },
+                files: {
+                    'build/css/main.css': ['public/css/main.css'],
                 }
             }
         },
@@ -58,7 +69,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadTasks('tasks');
 
-    grunt.registerTask('assets', ['concat', 'uglify']);
+    grunt.registerTask('assets', ['cssproc', 'concat', 'uglify']);
     grunt.registerTask('default', ['jshint']);
 };

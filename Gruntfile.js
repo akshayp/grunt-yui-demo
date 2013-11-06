@@ -18,6 +18,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // setup tasks
-    grunt.registerTask('assets', ['clean', 'cssproc', 'concat', 'uglify']);
+    grunt.registerTask('release', ['clean', 'cssproc', 'concat', 'uglify']);
     grunt.registerTask('default', ['jshint']);
 };

@@ -10,6 +10,7 @@
     "devDependencies": {
         "cssproc": "~0.0.7",
         "grunt": "~0.4.1",
+        "esprima": "*",
         "grunt-contrib-clean": "~0.5.0",
         "grunt-contrib-compass": "*",
         "grunt-contrib-concat": "*",
